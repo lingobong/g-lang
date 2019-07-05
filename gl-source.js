@@ -1,11 +1,11 @@
-function ML(_languages){
+function GL(_languages){
     let language = {
         data: null,
         languages: { default: require('../../languages/default') },
         selectedLanguage: 'default',
     }
 
-    function MultiLanguage (_languages={}, lang = 'default' ) {
+    function GLanguage (_languages={}, lang = 'default' ) {
         this.setLanguages(_languages);
         this.setLanguage(lang)
         this.lang = language.languages.default
@@ -19,7 +19,7 @@ function ML(_languages){
         }
     }
 
-    MultiLanguage.prototype.setLanguage = function ( lang ) {
+    GLanguage.prototype.setLanguage = function ( lang ) {
         let newLangData = language.languages[lang]
         if ( !!newLangData ) {
             language.selectedLanguage = lang
@@ -29,15 +29,15 @@ function ML(_languages){
         }
     }
     
-    MultiLanguage.prototype.getLanguage = function ( lang ) {
+    GLanguage.prototype.getLanguage = function ( lang ) {
         return language.selectedLanguage;
     }
 
-    MultiLanguage.prototype.setLanguages = function ( _languages={} ) {
+    GLanguage.prototype.setLanguages = function ( _languages={} ) {
         language.languages = { ...language.languages, ..._languages }
     }
 
-    return new MultiLanguage(_languages)
+    return new GLanguage(_languages)
 }
 
-module.exports = ML
+module.exports = GL
