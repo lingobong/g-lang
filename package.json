@@ -1,0 +1,23 @@
+{
+    "name": "multi-language",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "setup": "mkdir -p ./languages"
+    },
+    "license": "ISC",
+    "description": "LingoSearch : NodeJS Similarity Search-Engine",
+    "dependencies": {
+    },
+    "homepage": "https://github.com/lendland/multi-language",
+    "author": {
+        "name": "JaeWan, Ryu",
+        "email": "rwh9969@gmail.com",
+        "url": "https://github.com/lendland/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lendland/multi-language.git"
+    }
+}
