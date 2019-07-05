@@ -7,7 +7,7 @@
 npm install g-lang
 ```
 
-# example : [Download Example ZIP](https://github.com/lendland/g-lang/g-lang-example.zip)
+# example : [Download Example ZIP](https://github.com/lendland/g-lang/raw/master/g-lang-example.zip)
 ```js
 const { lang, getLanguage, setLanguage, setLanguages } = require('g-lang');
 
