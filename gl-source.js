@@ -8,11 +8,11 @@ function GL(_languages){
     function GLanguage (_languages={}, lang = 'default' ) {
         this.setLanguages(_languages);
         this.setLanguage(lang)
-        this.lang = language.languages.default
+        this.lang = { ... language.languages.default }
 
-        for (let key in language.languages.default) {
-            Object.assign(this.lang,{
-                get [key](){
+        for (const key in language.languages.default) {
+            Object.defineProperty(this.lang, key, {
+                get(){
                     return language.data[key] || language.languages.default[key]
                 }
             })
