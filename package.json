@@ -1,13 +1,12 @@
 {
     "name": "g-lang",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "main": "gl.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "setup": "mkdir -p ./languages"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "license": "ISC",
-    "description": "LingoSearch : NodeJS Similarity Search-Engine",
+    "description": "Multi Language Module / 가장 편리한 다국어 모듈(자동완성 지원)",
     "dependencies": {
     },
     "homepage": "https://github.com/lendland/g-lang",
