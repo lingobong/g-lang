@@ -8,14 +8,13 @@ function GLP(){
      const setLanguage = function ( lang, ignoreException = false ) {
          let newLangData = language.languages[lang]
          if ( !!newLangData ) {
-             if ( getLanguage() != lang ) {
-                 for ( const fn of languageChangeListeners ) {
-                     fn( lang, getLanguage() )
-                 }
-             }
- 
              language.selectedLanguage = lang
              language.data = language.languages[lang]
+             if ( getLanguage() != lang ) {
+                for ( const fn of languageChangeListeners ) {
+                    fn( lang, getLanguage() )
+                }
+             }
          }else if ( !ignoreException ) {
              throw new Error('['+lang+'] is not exists language')
          }
