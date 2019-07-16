@@ -42,6 +42,16 @@ function GLP(){
  
          return { remove }
      }
+     const createObject = function ( fn ) {
+         let parsed = fn()
+         onChangeLanguage(()=>{
+             let reParsed = fn()
+             for (let idx in reParsed) {
+                 parsed[idx] = reParsed[idx]
+             }
+         })
+         return parsed
+     }
  
      return {
          language,
@@ -49,6 +59,7 @@ function GLP(){
          getLanguage,
          setLanguages,
          onChangeLanguage,
+         createObject,
      }
 }
  
@@ -59,22 +70,25 @@ function GL(_languages){
          getLanguage,
          setLanguages,
          onChangeLanguage,
+         createObject,
      } = GLP()
      
      function GLanguage (_languages={}, lang = 'default' ) {
          this.setLanguages(_languages)
          this.setLanguage(lang)
-         this.lang = { ... language.languages.default }
- 
+
          for (const key in language.languages.default) {
+             let defaultValue = language.languages.default[key]
              Object.defineProperty(this.lang, key, {
                  get(){
-                     return language.data[key] || language.languages.default[key]
+                     return language.data[key] || defaultValue
                  }
              })
          }
      }
- 
+
+     GLanguage.prototype.lang = { ...language.languages.default }
+
      GLanguage.prototype.setLanguage = function ( lang, ignoreException = false ) {
          return setLanguage.apply(this,[ lang, ignoreException ])
      }
@@ -88,10 +102,18 @@ function GL(_languages){
      }
      
      GLanguage.prototype.onChangeLanguage = function ( fn = ( nextLanguage, prevLanguage ) => {  } ) {
-         return onChangeLanguage.apply(this, [ fn ])
+         let methods = { remove(){} }
+
+         methods = onChangeLanguage.apply(this, [ fn ])
+         
+         return methods
      }
- 
+
+     GLanguage.prototype.createObject = function ( fn = () => {  } ) {
+         return createObject.apply(this, [ fn ])
+     }
+
      return new GLanguage(_languages)
 }
- 
+
 module.exports = GL()

@@ -36,3 +36,15 @@ setLanguage('en')
 console.log(getLanguage(), lang.channel.name_label)
 console.log(getLanguage(), lang.video.title)
 ```
+
+## on global object
+#### usage
+```js
+import { lang, createObject } from 'g-lang'
+const langs = createObject( function () {
+    return {
+        title: lang.title,
+    }
+})
+console.log(langs.title)
+```

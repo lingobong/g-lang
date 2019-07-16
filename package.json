@@ -1,6 +1,6 @@
 {
     "name": "g-lang",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "main": "gl.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,14 +9,14 @@
     "description": "Multi Language Module / 가장 편리한 다국어 모듈(자동완성 지원)",
     "dependencies": {
     },
-    "homepage": "https://github.com/lendland/g-lang",
+    "homepage": "https://github.com/lingobong/g-lang",
     "author": {
         "name": "JaeWan, Ryu",
         "email": "rwh9969@gmail.com",
-        "url": "https://github.com/lendland/"
+        "url": "https://github.com/lingobong/"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/lendland/g-lang.git"
+        "url": "https://github.com/lingobong/g-lang.git"
     }
 }
