@@ -8,11 +8,14 @@ function GLP(){
      const setLanguage = function ( lang, ignoreException = false ) {
          let newLangData = language.languages[lang]
          if ( !!newLangData ) {
+             let prevLanguage = getLanguage()
+             
              language.selectedLanguage = lang
              language.data = language.languages[lang]
-             if ( getLanguage() != lang ) {
+
+             if ( prevLanguage != lang ) {
                 for ( const fn of languageChangeListeners ) {
-                    fn( lang, getLanguage() )
+                    fn( lang, prevLanguage )
                 }
              }
          }else if ( !ignoreException ) {
